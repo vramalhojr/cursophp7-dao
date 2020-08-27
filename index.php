@@ -9,9 +9,9 @@ require_once("config.php");
 //echo json_encode($usuarios);
 
 //Carrega um usuário
-//$usuario = new Usuario;
-//$usuario->loadById(1);
-//echo $usuario;
+$usuario = new Usuario;
+$usuario->loadById(1);
+echo $usuario;
 
 //CArrega uma lista de usuários
 
@@ -25,11 +25,13 @@ require_once("config.php");
 
 
 //Carrega dados passando 2 parametros
-$resultado = new Usuario;
+//$resultado = new Usuario;
+//$resultado->login("Mariana Bertiz","34");
+//echo $resultado;
 
-$resultado->login("Mariana Bertiz","34");
+//Inserir
+//$user = new Usuario("Mirian","30");
 
-echo $resultado;
-
+//$user->insert();
 
 ?>

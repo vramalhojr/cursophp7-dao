@@ -36,6 +36,12 @@ class Usuario {
 		$this->idade = $value;
 	}
 
+	public function __construct($nome = "", $idade = ""){
+
+		$this->setNome($nome);
+		$this->setIdade($idade);
+	}
+
 	public function loadById($id){
 
 		$sql = new Sql;
@@ -48,9 +54,7 @@ class Usuario {
 
 			$row = $results[0];
 
-			$this->setId($row['id']);
-			$this->setNome($row['nome']);
-			$this->setIdade($row['idade']);
+			$this->setDados($row);
 		}
 	}
 
@@ -71,6 +75,14 @@ class Usuario {
 		));
 	}
 
+	private function setDados($dados){
+
+		$this->setId($dados['id']);
+		$this->setNome($dados['nome']);
+		$this->setIdade($dados['idade']);
+	}
+
+
 	public function login($nome, $idade){
 
 		$sql = new Sql;
@@ -84,14 +96,22 @@ class Usuario {
 
 			$row = $results[0];
 
-			$this->setId($row['id']);
-			$this->setNome($row['nome']);
-			$this->setIdade($row['idade']);
+			$this->setDados($row);
 		} else {
 
 			throw new Exception("Dados não encontrados");
 		}
 
+	}
+
+	public function insert(){
+
+		$sql = new Sql;
+
+		$sql->query("INSERT INTO teste (nome, idade) VALUES (:NOME, :IDADE)",array(
+			":NOME"=>$this->getNome(),
+			":IDADE"=>$this->getIdade()
+		));
 	}
 
 	public function __toString(){
