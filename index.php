@@ -35,13 +35,15 @@ require_once("config.php");
 
 
 //Update
+//$usuario = new Usuario;
+//$usuario->loadById("3");
+//$usuario->update("Mariana");
 
+
+//Delete
 $usuario = new Usuario;
-
-$usuario->loadById("3");
-
-$usuario->update("Mariana");
-
+$usuario->loadById("6");
+$usuario->delete();
 
 
 ?>

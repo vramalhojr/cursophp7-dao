@@ -126,6 +126,20 @@ class Usuario {
 		));		
 	}
 
+		public function delete(){
+
+		$sql = new Sql;
+
+		$sql->query("DELETE FROM teste WHERE id = :ID",array(
+			":ID" => $this->getId()
+		));		
+
+		$this->setId(0);
+		$this->setNome("");
+		$this->setIdade("");
+	}
+
+
 	public function __toString(){
 		
 		return json_encode(array(
