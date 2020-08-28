@@ -9,9 +9,8 @@ require_once("config.php");
 //echo json_encode($usuarios);
 
 //Carrega um usuário
-$usuario = new Usuario;
-$usuario->loadById(1);
-echo $usuario;
+//$usuario->loadById(1);
+//echo $usuario;
 
 //CArrega uma lista de usuários
 
@@ -33,5 +32,16 @@ echo $usuario;
 //$user = new Usuario("Mirian","30");
 
 //$user->insert();
+
+
+//Update
+
+$usuario = new Usuario;
+
+$usuario->loadById("3");
+
+$usuario->update("Mariana");
+
+
 
 ?>

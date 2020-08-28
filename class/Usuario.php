@@ -114,6 +114,18 @@ class Usuario {
 		));
 	}
 
+	public function update($nome){
+
+		$this->setNome($nome);
+
+		$sql = new Sql;
+
+		$sql->query("UPDATE teste SET nome = :NOME WHERE id = :ID",array(
+			":NOME" => $this->getNome(),
+			":ID" => $this->getId()
+		));		
+	}
+
 	public function __toString(){
 		
 		return json_encode(array(
@@ -122,6 +134,7 @@ class Usuario {
 				"idade" => $this->getIdade()
 		));
 	}
+
 }
 
 ?>
